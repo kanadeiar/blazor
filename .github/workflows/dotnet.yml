@@ -21,7 +21,13 @@ jobs:
     - name: Publish .NET Project 🔧
       run: dotnet publish blazorwasm/blazorwasm.csproj -c Release --output release
       
-    - name: Deploy 🚀
+    - name: Change base-tag in index.html from / to blazorwasm
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorGitHubPagesDemo\/" \/>/g' release/wwwroot/index.html
+
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
+
+    - name: Deploy to GitHub Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
