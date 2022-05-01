@@ -22,7 +22,7 @@ jobs:
       run: dotnet publish blazorwasm/blazorwasm.csproj -c Release --output release
       
     - name: Change base-tag in index.html from / to blazorwasm
-      run: sed -i 's/<base href="\/" \/>/<base href="\/blazorwasm\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="/" />/<base href="/blazorwasm/" />/g' release/wwwroot/index.html
 
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
