@@ -1,2 +1,2 @@
-# blazor
-Blazor приложение
+# blazorwasm
+Blazor WebAssembly приложение
