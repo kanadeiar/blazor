@@ -22,8 +22,8 @@ jobs:
       run: dotnet publish blazorwasm/blazorwasm.csproj -c Release --output release
       
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
-        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ssh-key: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
         folder: release/wwwroot
